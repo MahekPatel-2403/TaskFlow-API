@@ -44,15 +44,12 @@ def get_tasks_paginated(page=1, limit=5):
 
     offset = (page - 1) * limit
 
-    cur.execute(
-        """
-        SELECT id, title, description, user_id
-        FROM tasks
-        ORDER BY id DESC
-        LIMIT %s OFFSET %s
-        """,
-        (limit, offset)
-    )
+    cur.execute("""
+    SELECT id, title, description, completed, created_at
+    FROM tasks
+    ORDER BY created_at DESC
+    LIMIT %s OFFSET %s;
+""", (limit, offset))
 
     rows = cur.fetchall()
 
