@@ -56,10 +56,10 @@ def get_tasks_paginated(page=1, limit=5):
     tasks = []
     for r in rows:
         tasks.append({
-            "id": r[0],
-            "title": r[1],
-            "description": r[2],
-            "user_id": r[3]
+        "id": r[0],
+        "title": r[1],
+        "description": r[2],
+        "completed": r[3]
         })
 
     cur.close()
